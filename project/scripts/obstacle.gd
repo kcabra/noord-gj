@@ -8,8 +8,10 @@ onready var lanes = get_tree().get_nodes_in_group("lane")
 func _ready():
 	if lanes && lanes.size() > 0:
 		lanes[lane].position.y + y_offset
+		self.collision_layer = 0
 		self.set_collision_layer_bit(lane + 1, 1)
 		self.z_index = lane
+		
 
 func _process(_delta):
 	if lanes && lanes.size() > 0:
