@@ -24,15 +24,18 @@ func _physics_process(delta):
 	vel += 1 if vel < 500 && moving else 0
 	
 	var collision = move_and_collide(Vector2(vel * (delta if moving else 0), move_vec))
-	if collision:
+	if collision && collision.normal == Vector2.LEFT:
 		moving = false
 		_explode()
+	elif collision:
+		move_and_collide(collision.remainder)
+		print_debug(collision.normal.angle())
+		print_debug(collision.remainder)
 
 func _change_lane(change):
 	if moving:
 		current_lane += change if current_lane + change <= 2 &&  current_lane + change >= 0 else 0
 		self.z_index = current_lane
-		print(self.z_index)
 		for i in range(3):
 			set_collision_mask_bit(i + 1, (1 if i == current_lane else 0))
 

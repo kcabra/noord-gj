@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Placeholders mockup.jpg" type="Texture" id=1]
 [ext_resource path="res://repeatable.jpg" type="Texture" id=2]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=3]
 [ext_resource path="res://scripts/player.gd" type="Script" id=4]
-[ext_resource path="res://scripts/obstacle.gd" type="Script" id=5]
-[ext_resource path="res://assets/container.png" type="Texture" id=6]
+[ext_resource path="res://objects/obstacle.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.7473, 62.996 )
@@ -17,9 +16,6 @@ func _process(delta):
 	self.text = (\"lane: \" + String(get_parent().current_lane) +
 	\"\\n bitmask:\" + String(get_parent().collision_mask))
 "
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 159.823, 75.3082 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -36,6 +32,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1e+07, 638.845 )
 
 [node name="lanes" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="lane1" type="Position2D" parent="lanes" groups=[
 "lane",
@@ -62,6 +59,7 @@ my_offset = 300.0
 [node name="player" type="KinematicBody2D" parent="." groups=[
 "player",
 ]]
+editor/display_folded = true
 position = Vector2( 374, 380 )
 z_index = 1
 z_as_relative = false
@@ -87,19 +85,21 @@ script = SubResource( 2 )
 
 [node name="obstacles" type="Node2D" parent="."]
 
-[node name="obstacle" type="StaticBody2D" parent="obstacles"]
-editor/display_folded = true
-position = Vector2( 1528.61, 375 )
-z_index = 1
-z_as_relative = false
-collision_layer = 4
-collision_mask = 0
-script = ExtResource( 5 )
-lane = 1
+[node name="obstacle" parent="obstacles" instance=ExtResource( 5 )]
+position = Vector2( 1682.21, 375 )
 
-[node name="Asset 4" type="Sprite" parent="obstacles/obstacle"]
-texture = ExtResource( 6 )
+[node name="obstacle2" parent="obstacles" instance=ExtResource( 5 )]
+position = Vector2( 2407.65, 301 )
+z_index = 0
+collision_layer = 6
+lane = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/obstacle"]
-position = Vector2( -9.04639, 1.29236 )
-shape = SubResource( 3 )
+[node name="obstacle3" parent="obstacles" instance=ExtResource( 5 )]
+position = Vector2( 2407.65, 375 )
+collision_layer = 6
+
+[node name="obstacle4" parent="obstacles" instance=ExtResource( 5 )]
+position = Vector2( 3331.11, 301 )
+z_index = 0
+collision_layer = 6
+lane = 0
