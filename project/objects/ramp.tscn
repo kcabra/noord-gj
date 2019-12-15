@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/obstacle.gd" type="Script" id=1]
+[ext_resource path="res://assets/container.png" type="Texture" id=2]
+[ext_resource path="res://assets/container_rammp.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 159.823, 75.3082 )
+
+[node name="obstacle" type="StaticBody2D"]
+z_index = 1
+z_as_relative = false
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+lane = 1
+
+[node name="Asset 4" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="container_rammp" type="Sprite" parent="."]
+position = Vector2( -240, 0 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1.96039, 2.38728 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2( -206.958, 36.2041 )
+polygon = PoolVector2Array( -108.136, 45.4172, 49.1081, -109.126, 48.5677, 42.7154 )

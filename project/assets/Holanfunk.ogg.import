@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Holanfunk.ogg-c0dc56eaae6c1b004fffe8d2158a1d98.oggstr"
+
+[deps]
+
+source_file="res://assets/Holanfunk.ogg"
+dest_files=[ "res://.import/Holanfunk.ogg-c0dc56eaae6c1b004fffe8d2158a1d98.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
