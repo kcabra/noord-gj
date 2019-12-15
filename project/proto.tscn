@@ -1,21 +1,21 @@
 [gd_scene load_steps=84 format=2]
 
-[ext_resource path="res://Placeholders mockup.jpg" type="Texture" id=1]
-[ext_resource path="res://repeatable.jpg" type="Texture" id=2]
-[ext_resource path="res://Sprite-0003.png" type="Texture" id=3]
-[ext_resource path="res://assets/Mar.png" type="Texture" id=4]
-[ext_resource path="res://assets/Ondona.png" type="Texture" id=5]
-[ext_resource path="res://assets/Ondinha.png" type="Texture" id=6]
-[ext_resource path="res://assets/navio1.png" type="Texture" id=7]
-[ext_resource path="res://assets/navio2.png" type="Texture" id=8]
-[ext_resource path="res://assets/navio4_menor.png" type="Texture" id=9]
-[ext_resource path="res://assets/navio1_menor.png" type="Texture" id=10]
-[ext_resource path="res://assets/Navio_cenario_final.png" type="Texture" id=11]
-[ext_resource path="res://assets/Navio_cenario_frente.png" type="Texture" id=12]
-[ext_resource path="res://scripts/camera.gd" type="Script" id=13]
-[ext_resource path="res://objects/obstacle.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/ramp.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/caixaprapularentrenavios.png" type="Texture" id=16]
+[ext_resource path="res://Sprite-0003.png" type="Texture" id=1]
+[ext_resource path="res://assets/Mar.png" type="Texture" id=2]
+[ext_resource path="res://assets/Ondona.png" type="Texture" id=3]
+[ext_resource path="res://assets/Ondinha.png" type="Texture" id=4]
+[ext_resource path="res://assets/navio1.png" type="Texture" id=5]
+[ext_resource path="res://assets/navio2.png" type="Texture" id=6]
+[ext_resource path="res://assets/navio4_menor.png" type="Texture" id=7]
+[ext_resource path="res://assets/navio1_menor.png" type="Texture" id=8]
+[ext_resource path="res://assets/Navio_cenario_final.png" type="Texture" id=9]
+[ext_resource path="res://assets/Navio_cenario_frente.png" type="Texture" id=10]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=11]
+[ext_resource path="res://objects/obstacle.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/ramp.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/caixaprapularentrenavios.png" type="Texture" id=14]
+[ext_resource path="res://scripts/oleo.gd" type="Script" id=15]
+[ext_resource path="res://assets/oleo.png" type="Texture" id=16]
 [ext_resource path="res://scripts/player.gd" type="Script" id=17]
 [ext_resource path="res://assets/char/personagemprincipalnovosprites_00000.png" type="Texture" id=18]
 [ext_resource path="res://assets/char/personagemprincipalnovosprites_00001.png" type="Texture" id=19]
@@ -75,48 +75,33 @@
 [ext_resource path="res://assets/char_pulo/Pulo_00025.png" type="Texture" id=73]
 [ext_resource path="res://assets/char_pulo/Pulo_00026.png" type="Texture" id=74]
 [ext_resource path="res://assets/Funkamsterdan.ogg" type="AudioStream" id=75]
+[ext_resource path="res://scripts/soundtrack.gd" type="Script" id=76]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node2D
-
-func _ready():
-	$AudioStreamPlayer.play()
-"
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100000, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 33.8901, 22.3069 )
-
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "jump"
 tracks/0/type = "value"
-tracks/0/path = NodePath("../../player:position")
+tracks/0/path = NodePath("caixaprapularentrenavios:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 7453.78, 560.356 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../../player:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0.290952, 0.290952 ), Vector2( 0.411005, 0.411005 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 33.8901, 22.3069 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 53.374, 25.9281 )
+
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": true,
@@ -129,18 +114,10 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[sub_resource type="GDScript" id=8]
-script/source = "extends AnimatedSprite
-
-onready var player = get_parent()
-
-func _process(delta):
-	"
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 32.7473, 62.996 )
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=7]
 script/source = "extends Label
 
 func _process(delta):
@@ -149,106 +126,113 @@ func _process(delta):
 "
 
 [node name="Node2D" type="Node2D"]
-script = SubResource( 1 )
-
-[node name="Placeholders mockup" type="Sprite" parent="."]
-visible = false
-position = Vector2( 479, 323 )
-texture = ExtResource( 1 )
-
-[node name="repeatable" type="Sprite" parent="."]
-visible = false
-position = Vector2( 321.757, 4.6438 )
-texture = ExtResource( 2 )
-centered = false
-offset = Vector2( 631, 0 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1e+07, 638.845 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-editor/display_folded = true
 motion_scale = Vector2( 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite-0003" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 917.619, 233.667 )
 scale = Vector2( 1.26292, 1.26292 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( -187.757, 28.022, 1e+07, 390.427 )
 
 [node name="Mar" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( -266.988, 725.299 )
 scale = Vector2( 0.552639, 0.521603 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 editor/display_folded = true
 position = Vector2( 406.167, 241.087 )
 scale = Vector2( 1.06966, 1.06966 )
 motion_scale = Vector2( 0.3, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Ondona" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( -179.434, 446.495 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 347500, 418 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 editor/display_folded = true
 motion_scale = Vector2( 0.6, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Ondinha" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2( 390.541, 659.889 )
 scale = Vector2( 0.987141, 0.987141 )
-texture = ExtResource( 6 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2.0405e+06, 700 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 motion_scale = Vector2( 0.4, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="navio1" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2( 211.071, 251.339 )
 scale = Vector2( 0.0514472, 0.0514472 )
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
 [node name="navio2" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2( 760.079, 299.418 )
 scale = Vector2( 0.0553022, 0.0553022 )
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 
 [node name="navio4_menor" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2( 2455.83, 315.455 )
 scale = Vector2( 0.110062, 0.110062 )
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="navio1_menor" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2( 1137.67, 271.91 )
 scale = Vector2( 0.110062, 0.110062 )
-texture = ExtResource( 10 )
+texture = ExtResource( 8 )
 
 [node name="fg" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 167.917, 280.289 )
 scale = Vector2( 0.677136, 0.677136 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Navio_cenario_final" type="Sprite" parent="fg"]
 position = Vector2( 10335.1, 474.146 )
 scale = Vector2( 1.13328, 1.13328 )
-texture = ExtResource( 11 )
+texture = ExtResource( 9 )
 
 [node name="Navio_cenario_frente" type="Sprite" parent="fg"]
 position = Vector2( 4392.15, 473.682 )
 scale = Vector2( 1.13328, 1.13328 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 
 [node name="Navio_cenario_frente2" type="Sprite" parent="fg"]
 position = Vector2( 16132, 489.896 )
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 
 [node name="lanes" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 73.1021, 132.314 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="lane1" type="Position2D" parent="lanes" groups=[
 "lane",
@@ -261,7 +245,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lanes/lane1/StaticBody2D"]
 position = Vector2( 100000, 36 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="lane2" type="Position2D" parent="lanes" groups=[
 "lane",
@@ -274,7 +258,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lanes/lane2/StaticBody2D"]
 position = Vector2( 100000, 36 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="lane3" type="Position2D" parent="lanes" groups=[
 "lane",
@@ -287,144 +271,174 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lanes/lane3/StaticBody2D"]
 position = Vector2( 100000, 36 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="camera" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
 zoom = Vector2( 1.4, 1.4 )
-script = ExtResource( 13 )
+script = ExtResource( 11 )
 my_offset = 300.0
 
 [node name="obstacles" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 74.4625, 115.99 )
 
-[node name="obstacle2" parent="obstacles" instance=ExtResource( 14 )]
+[node name="level1" type="Node2D" parent="obstacles"]
+editor/display_folded = true
+
+[node name="obstacle2" parent="obstacles/level1" instance=ExtResource( 12 )]
 position = Vector2( 1025.4, 338.314 )
 z_index = 0
 collision_layer = 2
 lane = 0
 
-[node name="obstacle3" parent="obstacles" instance=ExtResource( 14 )]
+[node name="obstacle3" parent="obstacles/level1" instance=ExtResource( 12 )]
 position = Vector2( 1998.04, 491.314 )
-z_index = 0
-collision_layer = 2
-lane = 2
-
-[node name="obstacle5" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 4568.36, 338.314 )
 z_index = 2
 collision_layer = 8
+lane = 2
+
+[node name="obstacle5" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 4568.36, 338.314 )
+z_index = 0
+collision_layer = 2
 lane = 0
 
-[node name="obstacle6" parent="obstacles" instance=ExtResource( 14 )]
+[node name="obstacle6" parent="obstacles/level1" instance=ExtResource( 12 )]
 position = Vector2( 4568.36, 491.314 )
-z_index = 0
-collision_layer = 2
-lane = 2
-
-[node name="obstacle7" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 5109.85, 412.314 )
 z_index = 2
 collision_layer = 8
+lane = 2
 
-[node name="obstacle9" parent="obstacles" instance=ExtResource( 14 )]
+[node name="obstacle7" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 5109.85, 412.314 )
+
+[node name="obstacle9" parent="obstacles/level1" instance=ExtResource( 12 )]
 position = Vector2( 5602.11, 412.314 )
 
-[node name="obstacle10" parent="obstacles" instance=ExtResource( 14 )]
+[node name="obstacle10" parent="obstacles/level1" instance=ExtResource( 12 )]
 position = Vector2( 5700.56, 338.314 )
-lane = 0
-
-[node name="obstacle11" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 6053.94, 491.314 )
 z_index = 0
 collision_layer = 2
-lane = 2
+lane = 0
 
-[node name="obstacle12" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 6512.8, 412.314 )
+[node name="obstacle11" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 6053.94, 491.314 )
 z_index = 2
 collision_layer = 8
-
-[node name="obstacle13" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 6808.15, 338.314 )
-lane = 0
-
-[node name="obstacle14" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 7036.71, 491.314 )
-z_index = 0
-collision_layer = 2
 lane = 2
 
-[node name="obstacle8" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 5027.22, 338.314 )
-lane = 0
+[node name="obstacle12" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 6512.8, 412.314 )
 
-[node name="obstacle4" parent="obstacles" instance=ExtResource( 14 )]
-position = Vector2( 3096.89, 412.314 )
+[node name="obstacle13" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 6808.15, 338.314 )
 z_index = 0
 collision_layer = 2
-
-[node name="obstacle" parent="obstacles" instance=ExtResource( 15 )]
-position = Vector2( 4051.53, 338.314 )
 lane = 0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="obstacles"]
+[node name="obstacle14" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 7036.71, 491.314 )
+z_index = 2
+collision_layer = 8
+lane = 2
+
+[node name="obstacle8" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 5027.22, 338.314 )
+z_index = 0
+collision_layer = 2
+lane = 0
+
+[node name="obstacle4" parent="obstacles/level1" instance=ExtResource( 12 )]
+position = Vector2( 3096.89, 412.314 )
+
+[node name="obstacle" parent="obstacles/level1" instance=ExtResource( 13 )]
+position = Vector2( 4051.53, 338.314 )
+z_index = 0
+collision_layer = 2
+lane = 0
+
+[node name="end_level_ramp" type="StaticBody2D" parent="obstacles"]
 position = Vector2( 7486.41, 406.069 )
 
-[node name="caixaprapularentrenavios" type="Sprite" parent="obstacles/StaticBody2D"]
-position = Vector2( -37.5312, 42.7854 )
-scale = Vector2( 0.290952, 0.290952 )
-texture = ExtResource( 16 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="obstacles/end_level_ramp"]
+anims/jump = SubResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obstacles/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="obstacles/end_level_ramp"]
 position = Vector2( -138.932, 9.55615 )
 polygon = PoolVector2Array( -78.1147, 58.7845, 7.28906, 53.3621, 129.971, 37.5466, 188.87, 21.3975, 211.702, 10.4576, 225.775, 0.673706, 284.715, 1.18243, 284.478, 59.2121, 273.59, 78.2803, -90.0278, 79.3205 )
 
-[node name="Area2D" type="Area2D" parent="obstacles/StaticBody2D"]
-position = Vector2( -21.3179, 24.993 )
+[node name="caixaprapularentrenavios" type="Sprite" parent="obstacles/end_level_ramp"]
+position = Vector2( -37.5312, 42.7854 )
+scale = Vector2( 0.411005, 0.411005 )
+texture = ExtResource( 14 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/StaticBody2D/Area2D"]
-position = Vector2( -150.198, 22.9427 )
-shape = SubResource( 6 )
+[node name="Area2D" type="Area2D" parent="obstacles/end_level_ramp"]
+position = Vector2( 78.6821, -6.58588 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="obstacles/StaticBody2D"]
-anims/jump = SubResource( 7 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/end_level_ramp/Area2D"]
+shape = SubResource( 3 )
+
+[node name="oil" type="Area2D" parent="obstacles"]
+position = Vector2( 9400.88, 413.314 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 15 )
+
+[node name="oil_sfx" type="AudioStreamPlayer" parent="obstacles/oil"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacles/oil"]
+shape = SubResource( 4 )
+
+[node name="oleo" type="Sprite" parent="obstacles/oil"]
+texture = ExtResource( 16 )
 
 [node name="player" type="KinematicBody2D" parent="." groups=[
 "player",
 ]]
-position = Vector2( 416.099, 572.849 )
+position = Vector2( 8146.88, 565.516 )
 z_index = 1
 z_as_relative = false
 collision_mask = 0
 script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="player"]
 position = Vector2( 0, -40.1489 )
-frames = SubResource( 3 )
-frame = 29
+frames = SubResource( 5 )
+frame = 13
 playing = true
 flip_h = true
-script = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( 21.5115, -37.2125 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Label" type="Label" parent="player"]
 visible = false
 margin_top = -126.651
 margin_right = 40.0
 margin_bottom = -112.651
-script = SubResource( 5 )
+script = SubResource( 7 )
 
 [node name="RayCast2D" type="RayCast2D" parent="player"]
 enabled = true
 cast_to = Vector2( 0, 30 )
 collision_mask = 0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="sfx" type="Node" parent="player"]
+
+[node name="jump" type="AudioStreamPlayer" parent="player/sfx"]
+
+[node name="death" type="AudioStreamPlayer" parent="player/sfx"]
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 75 )
-[connection signal="body_entered" from="obstacles/StaticBody2D/Area2D" to="obstacles/StaticBody2D/AnimationPlayer" method="play" binds= [ "jump" ]]
+script = ExtResource( 76 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+[connection signal="body_entered" from="obstacles/end_level_ramp/Area2D" to="obstacles/end_level_ramp/AnimationPlayer" method="play" binds= [ "jump" ]]
